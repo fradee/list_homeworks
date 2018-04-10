@@ -1,0 +1,11 @@
+print('Initial list:')
+lst = [1, [2, 3], 4, [[6, 7]],[[[[8,[9]]]]]]
+print(lst)
+string = ''.join(str(elem) for elem in lst)
+string = string.replace('[','')
+string = string.replace(',','')
+string = string.replace(']','')
+string = string.replace(' ','')
+lst = list(string)
+print('Final list:')
+print(lst)
