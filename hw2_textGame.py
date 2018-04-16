@@ -1,5 +1,5 @@
 import random
-#game_dificult = (('Easy'),('Hard'))
+#game_dificult = (('Легко'),('Важко'),('Дуже Важко'))
 #game_dificult_choice = int()
 min_num_range = 1
 max_num_range = 99
@@ -10,11 +10,11 @@ range_max = random.randint(magical_digit,max_num_range)
 min_num_range = range_min
 max_num_range = range_max
 if magical_digit < 100 and magical_digit >= 10:
-    num_numbers = 'двох цифер'
+    num_numbers = 'двох цифр'
 elif magical_digit <=999 and magical_digit >=100:
-    num_numbers = 'трьох цифер'
+    num_numbers = 'трьох цифр'
 elif magical_digit <= 9999 and magical_digit >=1000:
-    num_numbers = 'чотирьох цифер'
+    num_numbers = 'чотирьох цифр'
 else:
     num_numbers = 'однієї цифри'
 gammer_answer = 99
@@ -29,6 +29,7 @@ text_dic = {'main': '''Варіанти для продовження:
            'win': 'Ви відгадали число!',
            'wrong_number': 'Вказане вами число не збіграється з загаданим числом',
            'init_promt': "Загадано число, яке складається з {2} і знаходиться між {0} і {1}",
+           'answer': 'Введіть загадане число або # для попереднього кроку: '
            }
 
 while game_inProgress:
@@ -37,7 +38,7 @@ while game_inProgress:
         game_inProgress = False
         break
     elif gammer_answer == 1:
-        gammer_magical_digit = input('Введіть загадане число або # для попереднього кроку: ')
+        gammer_magical_digit = input(text_dic['answer'])
         if gammer_magical_digit.isdigit():
             if int(gammer_magical_digit) == magical_digit:
                 print(text_dic['win'])
@@ -50,7 +51,6 @@ while game_inProgress:
             gammer_answer = 9999
         else:
             continue
-
     elif gammer_answer == 2:
         if min_num_range < magical_digit-1:
             range_min = random.randint(min_num_range,magical_digit)
